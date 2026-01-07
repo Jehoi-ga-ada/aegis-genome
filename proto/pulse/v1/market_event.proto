@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pulse.v1;
+
+option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/pulse/v1";
+
+import "pulse/v1/tick.proto";
+import "pulse/v1/book.proto";
+import "pulse/v1/bar.proto";
+
+message MarketEvent {
+    string symbol = 1;
+    int64 event_time_ns = 2;
+    int64 received_time_ns = 3;
+
+    oneof payload {
+        Tick tick = 4;
+        Book book = 5;
+        Bar bar = 6;
+    }
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pulse.v1;
+
+option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/pulse/v1";
+
+message Tick {
+    string price = 1;
+    string quantity = 2;
+    Side side = 3;
+    enum Side {
+        SIDE_UNSPECIFIED = 0;
+        SIDE_BUY = 1;
+        SIDE_SELL = 2;
+    }
+}

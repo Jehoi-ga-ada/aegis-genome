@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package pulse.v1;
+
+option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/pulse/v1";
+
+message Bar {
+    // High-Frequency Data (Tags 1-8: Single Byte)
+    string open_price = 1;
+    string high_price = 2;
+    string low_price = 3;
+    string close_price = 4;
+    string base_volume = 5;
+    string quote_volume = 6;
+    int64 trades = 7;
+    bool is_closed = 8;
+
+    // Timing & Identification (Tags 9-13)
+    int64 start_time_ns = 9;
+    int64 end_time_ns = 10;
+    string interval = 11;
+
+    // Taker-Specific Data (Tags 12-15)
+    string taker_buy_base_volume = 12;
+    string taker_buy_quote_volume = 13;
+    int64 first_trade_id = 14;
+    int64 last_trade_id = 15;
+
+    // Extended Analytics (Tags 16+: Two Bytes)
+    string vwap = 16; // Volume Weighted Average Price
+}
