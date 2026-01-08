@@ -4,6 +4,8 @@ package market.v1;
 
 option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/market/v1";
 
+import "common/v1/enums.proto";
+
 message Bar {
     // High-Frequency Data (Tags 1-8: Single Byte)
     string open_price = 1;
@@ -18,7 +20,7 @@ message Bar {
     // Timing & Identification (Tags 9-13)
     int64 start_time_ns = 9;
     int64 end_time_ns = 10;
-    string interval = 11;
+    Interval interval = 11;
 
     // Taker-Specific Data (Tags 12-15)
     string taker_buy_base_volume = 12;

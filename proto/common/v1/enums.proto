@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package common.v1;
+
+option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/common/v1";
+
+// Centralized intervals for the entire system
+enum Interval {
+    INTERVAL_UNSPECIFIED = 0;
+    INTERVAL_M1 = 1;   // 1 Minute
+    INTERVAL_M3 = 2;   // 3 Minutes
+    INTERVAL_M5 = 3;   // 5 Minutes
+    INTERVAL_M15 = 4;  // 15 Minutes
+    INTERVAL_H1 = 5;   // 1 Hour
+    INTERVAL_H4 = 6;   // 4 Hours
+    INTERVAL_D1 = 7;   // 1 Day
+    INTERVAL_W1 = 8;   // 1 Week
+}
