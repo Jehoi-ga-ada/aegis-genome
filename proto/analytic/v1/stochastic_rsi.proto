@@ -11,7 +11,7 @@ message StochasticRsiConfig {
     int32 stoch_period = 2; 
     int32 k_smoothing = 3; 
     int32 d_smoothing = 4; 
-    Interval interval = 5;
+    common.v1.Interval interval = 5;
 }
 
 message StochasticRsiValue {

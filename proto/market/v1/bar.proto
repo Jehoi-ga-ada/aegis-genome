@@ -20,7 +20,7 @@ message Bar {
     // Timing & Identification (Tags 9-13)
     int64 start_time_ns = 9;
     int64 end_time_ns = 10;
-    Interval interval = 11;
+    common.v1.Interval interval = 11;
 
     // Taker-Specific Data (Tags 12-15)
     string taker_buy_base_volume = 12;

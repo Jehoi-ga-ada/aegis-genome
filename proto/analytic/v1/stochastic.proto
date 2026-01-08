@@ -10,7 +10,7 @@ message StochasticConfig {
     int32 k_period = 1;
     int32 k_smoothing = 2;
     int32 d_smoothing = 3;
-    Interval interval = 4;
+    common.v1.Interval interval = 4;
 }
 
 message StochasticValue {

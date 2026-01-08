@@ -8,7 +8,7 @@ import "common/v1/enums.proto";
 
 message RsiConfig {
     int32 period = 1;
-    Interval interval = 2;
+    common.v1.Interval interval = 2;
 }
 
 message RsiValue {
