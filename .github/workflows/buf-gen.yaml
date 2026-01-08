@@ -1,0 +1,36 @@
+name: Buf Generate
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'proto/**'      # Only run if files in the proto folder change
+      - 'buf.gen.yaml'   # Or if the generation config changes
+  pull_request:
+    paths:
+      - 'proto/**'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Buf
+        uses: bufbuild/buf-setup-action@v1
+        with:
+          github_token: ${{ github.token }}
+
+      - name: Buf Lint
+        uses: bufbuild/buf-lint-action@v1
+
+      - name: Generate Protos
+        run: buf generate
+
+      - name: Commit changes
+        if: github.event_name == 'push'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: regenerate protobuf stubs [skip ci]"
+          file_pattern: 'gen/**' 
