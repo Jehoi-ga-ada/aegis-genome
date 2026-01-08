@@ -5,9 +5,6 @@ package analytic.v1;
 option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/analytic/v1";
 
 import "analytic/v1/analytic_event.proto";
-import "analytic/v1/rsi.proto";
-import "analytic/v1/stochastic_rsi.proto";
-import "analytic/v1/stochastic.proto";
 import "analytic/v1/indicator_config.proto";
 
 service AnalyticService {
