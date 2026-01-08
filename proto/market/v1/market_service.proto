@@ -12,7 +12,7 @@ service MarketService {
 
 message SubscribeMarketEventsRequest {
     repeated string symbols = 1;
-    repeated EventType filter_types = 2;
+    repeated EventType event_types = 2;
     
     enum EventType {
         EVENT_TYPE_UNSPECIFIED = 0; 
