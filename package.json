@@ -1,0 +1,6 @@
+{
+  "name": "@aegis/genome",
+  "version": "0.1.0",
+  "main": "./gen/ts/index.ts",
+  "types": "./gen/ts/index.ts"
+}
