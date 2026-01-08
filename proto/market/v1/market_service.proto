@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package market.v1;
+
+option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/market/v1";
+
+import "market/v1/market_event.proto";
+
+service MarketService {
+    rpc SubscribeMarketEvents(SubscribeMarketEventsRequest) returns (stream SubscribeMarketEventsResponse);
+}
+
+message SubscribeMarketEventsRequest {
+    repeated string symbols = 1;
+    repeated EventType filter_types = 2;
+    
+    enum EventType {
+        EVENT_TYPE_UNSPECIFIED = 0; 
+        EVENT_TYPE_TICK = 1;
+        EVENT_TYPE_BOOK = 2;
+        EVENT_TYPE_BAR = 3;
+    }
+}
+
+message SubscribeMarketEventsResponse {
+    MarketEvent event = 1;
+}
