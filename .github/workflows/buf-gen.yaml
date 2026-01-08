@@ -4,21 +4,25 @@ on:
     branches:
       - main
     paths:
-      - 'proto/**'      # Only run if files in the proto folder change
-      - 'buf.gen.yaml'   # Or if the generation config changes
+      - 'proto/**'
+      - 'buf.gen.yaml'
   pull_request:
     paths:
       - 'proto/**'
+  workflow_dispatch: 
 
 jobs:
   generate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
-
+          fetch-depth: 0
+          ref: ${{ github.head_ref }} 
+          
       - name: Setup Buf
         uses: bufbuild/buf-setup-action@v1
         with:
@@ -35,4 +39,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: regenerate protobuf stubs [skip ci]"
-          file_pattern: 'gen/**' 
+          file_pattern: 'gen/**'
+          push_options: '--ff'
