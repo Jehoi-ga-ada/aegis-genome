@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package analytic.v1;
+
+option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/analytic/v1";
+
+import "common/v1/enums.proto";
+
+message RsiConfig {
+    int32 period = 1;
+    Interval interval = 2;
+}
+
+message RsiValue {
+    double value = 1;
+}

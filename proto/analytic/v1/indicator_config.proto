@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package analytic.v1;
+
+option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/analytic/v1";
+
+import "analytic/v1/rsi.proto";
+import "analytic/v1/stochastic_rsi.proto";
+import "analytic/v1/stochastic.proto";
+
+message IndicatorConfig {
+    string indicator_id = 1;
+
+    oneof type {
+        RsiConfig rsi = 2;
+        StochasticConfig stochastic = 3;
+        StochasticRsiConfig stochastic_rsi = 4;
+    }
+}

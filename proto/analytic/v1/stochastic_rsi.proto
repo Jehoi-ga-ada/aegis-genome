@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package analytic.v1;
+
+option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/analytic/v1";
+
+import "common/v1/enums.proto";
+
+message StochasticRsiConfig {
+    int32 rsi_period = 1;  
+    int32 stoch_period = 2; 
+    int32 k_smoothing = 3; 
+    int32 d_smoothing = 4; 
+    Interval interval = 5;
+}
+
+message StochasticRsiValue {
+    double k_line = 1;
+    double d_line = 2;
+}

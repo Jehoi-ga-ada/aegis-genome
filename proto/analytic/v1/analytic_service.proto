@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package analytic.v1;
+
+option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/analytic/v1";
+
+import "analytic/v1/analytic_event.proto";
+import "analytic/v1/rsi.proto";
+import "analytic/v1/stochastic_rsi.proto";
+import "analytic/v1/stochastic.proto";
+import "analytic/v1/indicator_config.proto";
+
+service AnalyticService {
+    rpc SubscribeAnalyticEvents(SubscribeAnalyticEventsRequest) returns (stream SubscribeAnalyticEventsResponse);
+}
+
+message SubscribeAnalyticEventsRequest {
+    repeated string symbols = 1;
+    repeated IndicatorConfig configs = 2;
+}
+
+message SubscribeAnalyticEventsResponse {
+    AnalyticEvent event = 1;
+}

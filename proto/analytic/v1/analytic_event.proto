@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package analytic.v1;
+
+option go_package = "github.com/Jehoi-ga-ada/aegis-genome/gen/go/analytic/v1";
+
+import "analytic/v1/rsi.proto";
+import "analytic/v1/stochastic_rsi.proto";
+import "analytic/v1/stochastic.proto";
+
+message AnalyticEvent {
+    string symbol = 1;
+    int64 event_time_ns = 2;
+    int64 received_time_ns = 3;
+
+    oneof payload {
+        RsiValue rsi_value = 4;
+        StochasticRsiValue stochastic_rsi_value = 5;
+        StochasticValue stochastic_value = 6;
+    }
+}
