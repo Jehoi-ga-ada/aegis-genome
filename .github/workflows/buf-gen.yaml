@@ -21,8 +21,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.head_ref }} 
-          
+          # Ensuring we have the latest commit to avoid divergence
+          ref: ${{ github.ref }} 
+
       - name: Setup Buf
         uses: bufbuild/buf-setup-action@v1
         with:
@@ -40,4 +41,6 @@ jobs:
         with:
           commit_message: "chore: regenerate protobuf stubs [skip ci]"
           file_pattern: 'gen/**'
+          add_options: '-A'
           push_options: '--ff'
+          skip_dirty_check: false
